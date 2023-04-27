@@ -1,6 +1,7 @@
 import cv2
 from denoise_img import non_local_means_denoise
 
+
 input_image = cv2.imread('girl.jpg')
 
 
@@ -16,3 +17,7 @@ cv2.imshow('Input Image', input_image)
 cv2.imshow('Output Image', output_image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+
+
+  

@@ -16,11 +16,13 @@ def non_local_means_denoise(image, h=0.1, sigma=1.0):
     image = np.float32(image) / 255.0
 
     
-    window_size = int(np.ceil(3 * sigma))
+    window_size = int(np.ceil(1 * sigma))
+    
 
 
     pad_width = ((window_size, window_size), (window_size, window_size), (0, 0))
-    padded_image = np.pad(image, pad_width, mode='same')
+    padded_image = np.pad(image, pad_width, mode='symmetric')
+    
     kernel = np.exp(-0.5 * np.square(np.arange(-window_size, window_size+1, dtype=np.float32)) / np.square(sigma))
     kernel /= np.sum(kernel)
 
